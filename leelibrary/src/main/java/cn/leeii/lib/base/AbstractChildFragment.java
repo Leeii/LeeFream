@@ -13,6 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import javax.inject.Inject;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import cn.leeii.lib.model.Action;
@@ -25,7 +27,7 @@ import cn.leeii.lib.widget.LoadingDialog;
  * AbstractFragment Created by Lee on 2017/1/3.
  */
 
-public abstract class AbstractFragment<A extends AbstractActivity, P extends IContract.IPresenter> extends Fragment
+public abstract class AbstractChildFragment<A extends AbstractActivity, P extends IContract.IPresenter> extends Fragment
         implements IContract.IView<P>, ReceiveResult {
 
 
@@ -44,7 +46,7 @@ public abstract class AbstractFragment<A extends AbstractActivity, P extends ICo
      */
     public LocalBroadcastManager mLocalBroad;
 
-
+    @Inject
     protected P mPresenter;
 
     //Activity
@@ -74,11 +76,14 @@ public abstract class AbstractFragment<A extends AbstractActivity, P extends ICo
         unbinder = null;
     }
 
+    protected abstract void componentInject();
+
     @Override
     @SuppressWarnings("unchecked")
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mActivity = (A) getActivity();
+        componentInject();
         trySetupData(savedInstanceState);
 
         // 判断是否有广播
@@ -105,7 +110,7 @@ public abstract class AbstractFragment<A extends AbstractActivity, P extends ICo
 
     @Override
     public void setPresenter(P presenter) {
-        mPresenter = presenter;
+//        mPresenter = presenter;
     }
 
     @Override

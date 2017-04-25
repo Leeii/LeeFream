@@ -1,6 +1,7 @@
 package cn.leeii.lib.mvp;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -32,7 +33,7 @@ public interface IContract {
 
         void Tips(String msg);
 
-        void Tips(int msg);
+        void TipsError(String msg);
 
         /**
          * 跳转不带参数
@@ -67,6 +68,8 @@ public interface IContract {
          * 带结果的Activity跳转 有参数
          */
         void startActivityForResult(int requestCode, Intent intent, Class clazz, Bundle option);
+
+        void setLoadingDialogCancelListener(DialogInterface.OnCancelListener onCancelListener);
     }
 
     interface IPresenter {

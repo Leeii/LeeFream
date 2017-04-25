@@ -80,9 +80,10 @@ public abstract class AbstractActivity<T extends BasePresenter> extends AppCompa
         mApplication.Tips(msg);
     }
 
-    public void Tips(int msg) {
+    public void TipsError(String msg) {
         mApplication.Tips(msg);
     }
+
 
     public void startActivity(Class clazz, boolean finish) {
         startActivity(null, clazz, finish);
@@ -130,6 +131,7 @@ public abstract class AbstractActivity<T extends BasePresenter> extends AppCompa
         startActivityForResult(requestCode, null, clazz, option);
     }
 
+    @TargetApi(16)
     public void startActivityForResult(int requestCode, Intent intent, Class clazz, Bundle option) {
         if (intent == null)
             intent = new Intent(this, clazz);
@@ -145,10 +147,10 @@ public abstract class AbstractActivity<T extends BasePresenter> extends AppCompa
     }
 
     @Override
-    public <T extends Parcelable> void onReceive(Intent intent) {
+    public <RESULT extends Parcelable> void onReceive(Intent intent) {
         if (mPresenter != null) {
             String action = intent.getAction();
-            T result = intent.getParcelableExtra(Action.RESULT);
+            RESULT result = intent.getParcelableExtra(Action.RESULT);
             mPresenter.dealReceive(action, result);
         }
     }

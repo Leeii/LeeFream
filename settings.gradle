@@ -1,1 +1,1 @@
-include ':app', ':leelibrary'
+include ':app', ':lib-mvp', ':lib-common'

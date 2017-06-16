@@ -3,7 +3,7 @@ package cn.leeii.simple.delete;
 import android.content.Context;
 import android.view.View;
 
-import cn.leeii.lib.widget.recycler.BaseAdapter;
+import cn.leeii.libmvp.widget.recycler.BaseAdapter;
 import cn.leeii.simple.R;
 
 /**

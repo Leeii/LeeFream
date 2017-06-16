@@ -1,6 +1,6 @@
 package cn.leeii.simple.ui.bind.di;
 
-import cn.leeii.lib.di.scope.ActivityScope;
+import cn.leeii.libmvp.di.scope.ActivityScope;
 import cn.leeii.simple.ui.bind.BinderContract;
 import dagger.Module;
 import dagger.Provides;

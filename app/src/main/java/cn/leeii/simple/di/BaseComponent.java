@@ -2,10 +2,10 @@ package cn.leeii.simple.di;
 
 import javax.inject.Singleton;
 
-import cn.leeii.lib.base.AbstractApplication;
-import cn.leeii.lib.di.module.ApplicationModule;
-import cn.leeii.lib.di.module.RequestModule;
-import cn.leeii.lib.di.module.RxModule;
+import cn.leeii.libmvp.base.AbstractApplication;
+import cn.leeii.libmvp.di.module.ApplicationModule;
+import cn.leeii.libmvp.di.module.RequestModule;
+import cn.leeii.libmvp.di.module.RxModule;
 import cn.leeii.simple.APIService;
 import cn.leeii.simple.CacheService;
 import dagger.Component;

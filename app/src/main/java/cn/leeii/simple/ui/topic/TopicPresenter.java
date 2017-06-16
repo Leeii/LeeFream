@@ -2,7 +2,7 @@ package cn.leeii.simple.ui.topic;
 
 import javax.inject.Inject;
 
-import cn.leeii.lib.mvp.BasePresenter;
+import cn.leeii.libmvp.mvp.BasePresenter;
 import cn.leeii.simple.APIService;
 import cn.leeii.simple.CacheService;
 

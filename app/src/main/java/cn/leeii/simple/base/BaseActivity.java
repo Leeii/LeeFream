@@ -1,7 +1,7 @@
 package cn.leeii.simple.base;
 
-import cn.leeii.lib.base.AbstractActivity;
-import cn.leeii.lib.mvp.BasePresenter;
+import cn.leeii.libmvp.base.AbstractActivity;
+import cn.leeii.libmvp.mvp.BasePresenter;
 import cn.leeii.simple.Simple;
 import cn.leeii.simple.di.BaseComponent;
 

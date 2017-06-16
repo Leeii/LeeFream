@@ -2,7 +2,7 @@ package cn.leeii.simple;
 
 import java.io.IOException;
 
-import cn.leeii.lib.utils.PreferenceHelper;
+import cn.leeii.libmvp.utils.PreferenceHelper;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;

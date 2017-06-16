@@ -1,6 +1,6 @@
 package cn.leeii.simple.ui.topic;
 
-import cn.leeii.lib.mvp.IContract;
+import cn.leeii.libmvp.mvp.IContract;
 
 /**
  * Topic契约 Presenter 与 View 的方法接口.

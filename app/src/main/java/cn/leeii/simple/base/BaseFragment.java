@@ -2,9 +2,9 @@ package cn.leeii.simple.base;
 
 import javax.inject.Inject;
 
-import cn.leeii.lib.base.AbstractActivity;
-import cn.leeii.lib.base.AbstractFragment;
-import cn.leeii.lib.mvp.IContract;
+import cn.leeii.libmvp.base.AbstractActivity;
+import cn.leeii.libmvp.base.AbstractFragment;
+import cn.leeii.libmvp.mvp.IContract;
 import cn.leeii.simple.APIService;
 
 /**

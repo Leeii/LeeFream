@@ -2,12 +2,12 @@ package cn.leeii.simple.ui.bind;
 
 import javax.inject.Inject;
 
-import cn.leeii.lib.di.scope.ActivityScope;
-import cn.leeii.lib.model.Response;
-import cn.leeii.lib.mvp.BasePresenter;
-import cn.leeii.lib.request.ResponseSubscriber;
-import cn.leeii.lib.request.RetryWithDelay;
-import cn.leeii.lib.utils.LogUtil;
+import cn.leeii.libmvp.di.scope.ActivityScope;
+import cn.leeii.libmvp.model.Response;
+import cn.leeii.libmvp.mvp.BasePresenter;
+import cn.leeii.libmvp.request.ResponseSubscriber;
+import cn.leeii.libmvp.request.RetryWithDelay;
+import cn.leeii.libmvp.utils.LogUtil;
 import cn.leeii.simple.APIService;
 import cn.leeii.simple.CacheService;
 import io.rx_cache.DynamicKey;

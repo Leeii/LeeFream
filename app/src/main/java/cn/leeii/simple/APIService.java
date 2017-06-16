@@ -1,6 +1,6 @@
 package cn.leeii.simple;
 
-import cn.leeii.lib.model.Response;
+import cn.leeii.libmvp.model.Response;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;

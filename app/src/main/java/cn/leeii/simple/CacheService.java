@@ -2,7 +2,7 @@ package cn.leeii.simple;
 
 import java.util.concurrent.TimeUnit;
 
-import cn.leeii.lib.model.Response;
+import cn.leeii.libmvp.model.Response;
 import io.rx_cache.DynamicKey;
 import io.rx_cache.EvictProvider;
 import io.rx_cache.LifeCache;

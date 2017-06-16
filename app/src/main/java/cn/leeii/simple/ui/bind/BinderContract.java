@@ -1,6 +1,6 @@
 package cn.leeii.simple.ui.bind;
 
-import cn.leeii.lib.mvp.IContract;
+import cn.leeii.libmvp.mvp.IContract;
 
 /**
  * Created by Lee on 2016/12/26.

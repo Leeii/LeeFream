@@ -8,9 +8,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import cn.leeii.lib.widget.recycler.BaseAdapter;
-import cn.leeii.lib.widget.recycler.listener.LoadMoreListener;
-import cn.leeii.lib.widget.recycler.listener.RecyclerListener;
+import cn.leeii.libmvp.widget.recycler.BaseAdapter;
+import cn.leeii.libmvp.widget.recycler.listener.LoadMoreListener;
+import cn.leeii.libmvp.widget.recycler.listener.RecyclerListener;
 import cn.leeii.simple.R;
 import rx.Observable;
 import rx.Subscriber;

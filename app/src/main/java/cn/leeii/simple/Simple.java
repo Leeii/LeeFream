@@ -1,8 +1,8 @@
 package cn.leeii.simple;
 
 
-import cn.leeii.lib.base.AbstractApplication;
-import cn.leeii.lib.di.module.ApplicationModule;
+import cn.leeii.libmvp.base.AbstractApplication;
+import cn.leeii.libmvp.di.module.ApplicationModule;
 import cn.leeii.simple.di.BaseComponent;
 import cn.leeii.simple.di.DaggerBaseComponent;
 import okhttp3.Interceptor;

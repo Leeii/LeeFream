@@ -8,8 +8,8 @@ import com.alibaba.fastjson.JSON;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import cn.leeii.lib.utils.LogUtil;
-import cn.leeii.lib.utils.PreferenceHelper;
+import cn.leeii.libmvp.utils.LogUtil;
+import cn.leeii.libmvp.utils.PreferenceHelper;
 import cn.leeii.simple.R;
 import cn.leeii.simple.R2;
 import cn.leeii.simple.base.BaseFragment;

@@ -4,8 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.ViewGroup;
 
-import cn.leeii.lib.model.Screen;
-import cn.leeii.lib.utils.UIUtil;
+import cn.leeii.libmvp.model.Screen;
+import cn.leeii.libmvp.utils.UIUtil;
 import cn.leeii.simple.pager.fragments.ExpandingFragment;
 
 

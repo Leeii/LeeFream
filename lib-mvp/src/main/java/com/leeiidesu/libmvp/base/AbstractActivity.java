@@ -50,6 +50,9 @@ public abstract class AbstractActivity<P extends BasePresenter> extends AppCompa
     @LayoutRes
     int getLayoutResId();
 
+    /**
+     * 在setContentView之前
+     */
     protected void beforeInjectView() {
 
     }

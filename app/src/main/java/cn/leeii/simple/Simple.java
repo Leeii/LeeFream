@@ -1,10 +1,10 @@
 package cn.leeii.simple;
 
 
-import cn.leeii.libmvp.base.AbstractApplication;
-import cn.leeii.libmvp.di.module.ApplicationModule;
-import cn.leeii.simple.di.BaseComponent;
-import cn.leeii.simple.di.DaggerBaseComponent;
+import com.leeiidesu.libmvp.base.AbstractApplication;
+
+import cn.leeii.simple.di.component.BaseComponent;
+import cn.leeii.simple.di.component.DaggerBaseComponent;
 import okhttp3.Interceptor;
 
 /**
@@ -12,18 +12,24 @@ import okhttp3.Interceptor;
  */
 
 public class Simple extends AbstractApplication {
-
     private BaseComponent mBaseComponent;
-
 
     @Override
     public void onCreate() {
         super.onCreate();
         mBaseComponent = DaggerBaseComponent
                 .builder()
-                .applicationModule(new ApplicationModule(this))
+                .applicationModule(getApplicationModule())
                 .requestModule(getRequestModule())
+                .rxModule(getRxModule())
                 .build();
+
+        mBaseComponent.inject(this);
+    }
+
+    @Override
+    protected boolean isDebug() {
+        return BuildConfig.DEBUG;
     }
 
     public BaseComponent getBaseComponent() {
@@ -32,18 +38,11 @@ public class Simple extends AbstractApplication {
 
     @Override
     protected String getBaseUrl() {
-        return BuildConfig.API_HOST_PATH;
-    }
-
-    @Override
-    protected boolean isDebug() {
-        return true;
+        return API.BASE_URL;
     }
 
     @Override
     protected Interceptor[] getInterceptors() {
-        return new Interceptor[]{
-                new TokenInterceptor()
-        };
+        return new Interceptor[0];
     }
 }

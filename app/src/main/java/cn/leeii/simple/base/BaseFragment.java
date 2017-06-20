@@ -1,18 +1,25 @@
 package cn.leeii.simple.base;
 
-import javax.inject.Inject;
+import com.leeiidesu.libmvp.base.AbstractFragment;
+import com.leeiidesu.libmvp.mvp.BasePresenter;
 
-import cn.leeii.libmvp.base.AbstractActivity;
-import cn.leeii.libmvp.base.AbstractFragment;
-import cn.leeii.libmvp.mvp.IContract;
-import cn.leeii.simple.APIService;
+import cn.leeii.simple.Simple;
+import cn.leeii.simple.di.component.BaseComponent;
 
 /**
- * Created by Lee on 2017/1/3.
+ * _ BaseFragment _ Created by dgg on 2017/6/19.
  */
 
-public abstract class BaseFragment<A extends AbstractActivity,
-        P extends IContract.IPresenter> extends AbstractFragment<A, P> {
-    @Inject
-    protected APIService api;
+public abstract class BaseFragment<A extends BaseActivity, P extends BasePresenter>
+        extends AbstractFragment<A, P> {
+    @Override
+    protected void componentInject() {
+        Simple simple = (Simple) mActivity.getApplication();
+
+        setupComponent(simple.getBaseComponent());
+    }
+
+    protected void setupComponent(BaseComponent baseComponent) {
+
+    }
 }

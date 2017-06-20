@@ -16,4 +16,8 @@
         <item name="android:windowActivityTransitions">true</item>
     </style>
 
+    <style name="AppTheme2.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme2.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

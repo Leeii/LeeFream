@@ -16,6 +16,7 @@ public class Toaster {
         this.context = context.getApplicationContext();
     }
 
+    @SuppressLint("ShowToast")
     public Toast getSingletonToast(int resId) {
         if (mToast == null) {
             mToast = Toast.makeText(context, resId, Toast.LENGTH_SHORT);

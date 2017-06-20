@@ -1,21 +1,21 @@
 package cn.leeii.simple.base;
 
-import cn.leeii.libmvp.base.AbstractActivity;
-import cn.leeii.libmvp.mvp.BasePresenter;
+import com.leeiidesu.libmvp.base.AbstractActivity;
+import com.leeiidesu.libmvp.mvp.BasePresenter;
+
 import cn.leeii.simple.Simple;
-import cn.leeii.simple.di.BaseComponent;
+import cn.leeii.simple.di.component.BaseComponent;
 
 /**
- * Created by Lee on 2016/12/2
+ * _ BaseActivity _ Created by dgg on 2017/6/19.
  */
 
-public abstract class BaseActivity<T extends BasePresenter> extends AbstractActivity<T> {
-    protected Simple mApplication;
-
+public abstract class BaseActivity<P extends BasePresenter> extends AbstractActivity<P> {
     @Override
     protected void componentInject() {
-        mApplication = (Simple) getApplication();
-        setupComponent(mApplication.getBaseComponent());
+        Simple simple = (Simple) mApplication;
+
+        setupComponent(simple.getBaseComponent());
     }
 
     protected abstract void setupComponent(BaseComponent baseComponent);

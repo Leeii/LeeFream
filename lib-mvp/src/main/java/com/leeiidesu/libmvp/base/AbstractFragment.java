@@ -15,6 +15,8 @@ import com.leeiidesu.libmvp.mvp.BasePresenter;
 import com.leeiidesu.libmvp.mvp.IContract;
 import com.leeiidesu.libmvp.widget.LoadingDialog;
 
+import org.simple.eventbus.EventBus;
+
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
@@ -65,6 +67,24 @@ public abstract class AbstractFragment<A extends AbstractActivity, P extends Bas
 
     protected abstract void trySetupData(Bundle savedInstanceState);
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (useEventBus())
+            EventBus.getDefault().register(this);
+    }
+
+    protected boolean useEventBus() {
+        return false;
+    }
+
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (useEventBus())
+            EventBus.getDefault().unregister(this);
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();

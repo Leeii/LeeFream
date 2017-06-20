@@ -13,6 +13,8 @@ import com.leeiidesu.libmvp.mvp.BasePresenter;
 import com.leeiidesu.libmvp.mvp.IContract;
 import com.leeiidesu.libmvp.widget.LoadingDialog;
 
+import org.simple.eventbus.EventBus;
+
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
@@ -59,6 +61,25 @@ public abstract class AbstractActivity<P extends BasePresenter> extends AppCompa
         mPresenter = null;
         mUnBinder.unbind();
         mUnBinder = null;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (useEventBus())
+            EventBus.getDefault().register(this);
+    }
+
+    protected boolean useEventBus() {
+        return false;
+    }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (useEventBus())
+            EventBus.getDefault().unregister(this);
     }
 
     @Inject

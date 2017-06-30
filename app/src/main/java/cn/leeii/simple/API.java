@@ -5,5 +5,5 @@ package cn.leeii.simple;
  */
 
 public interface API {
-    String BASE_URL = "https://www.baidu.com";
+    String BASE_URL = "http://tms.lgiotchina.com";
 }

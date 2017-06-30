@@ -43,6 +43,7 @@ public class LoadingDialog extends Dialog {
         progress_wheel.setBarWidth(dp8 / 4);
         progress_wheel.setFillRadius(true);
 
+
         content.addView(progress_wheel);
 
         setContentView(content);

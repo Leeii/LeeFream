@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/lib-common" />
             <option value="$PROJECT_DIR$/lib-mvp" />
+            <option value="$PROJECT_DIR$/lib-widget" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

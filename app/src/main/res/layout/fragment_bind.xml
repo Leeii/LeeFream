@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -9,23 +10,36 @@
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FF0f96f8"
         android:text="登录" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FF009688"
         android:text="Button" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#a58923"
         android:text="Button" />
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="match_parent"
+        android:layout_width="128dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:background="#a88585"
         android:text="Button" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
+        app:srcCompat="@mipmap/ic_launcher" />
 </LinearLayout>

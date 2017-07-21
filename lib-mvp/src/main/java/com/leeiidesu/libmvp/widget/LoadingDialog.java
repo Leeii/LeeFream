@@ -2,13 +2,14 @@ package com.leeiidesu.libmvp.widget;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.FrameLayout;
 
-import com.leeiidesu.libcommon.android.UIUtil;
+import com.leeiidesu.libcore.android.UIUtil;
 
 import cn.leeii.libmvp.R;
 
@@ -16,7 +17,9 @@ import cn.leeii.libmvp.R;
  * 加载的圈圈 Created by Lee on 2016/12/26.
  */
 
-public class LoadingDialog extends Dialog {
+public class LoadingDialog extends Dialog implements DialogInterface.OnShowListener, DialogInterface.OnDismissListener {
+
+    private ProgressWheel mProgressWheel;
 
     public LoadingDialog(Context context) {
         super(context, R.style.dialog);
@@ -36,16 +39,30 @@ public class LoadingDialog extends Dialog {
         int dp8 = UIUtil.dipToPx(getContext(), 8);
         content.setPadding(dp8, dp8, dp8, dp8);
 
-        ProgressWheel progress_wheel = new ProgressWheel(getContext());
+        mProgressWheel = new ProgressWheel(getContext());
 
-        progress_wheel.setLayoutParams(new FrameLayout.LayoutParams(dp8 * 8, dp8 * 8)); //64dp
-        progress_wheel.setBarColor(Color.parseColor("#0c3343"));
-        progress_wheel.setBarWidth(dp8 / 4);
-        progress_wheel.setFillRadius(true);
+        mProgressWheel.setLayoutParams(new FrameLayout.LayoutParams(dp8 * 8, dp8 * 8)); //64dp
+        mProgressWheel.setBarColor(Color.parseColor("#0c3343"));
+        mProgressWheel.setBarWidth(dp8 / 4);
+        mProgressWheel.setFillRadius(true);
 
 
-        content.addView(progress_wheel);
+        content.addView(mProgressWheel);
 
         setContentView(content);
+
+        setOnShowListener(this);
+
+        setOnDismissListener(this);
+    }
+
+    @Override
+    public void onShow(DialogInterface dialog) {
+        mProgressWheel.spin();
+    }
+
+    @Override
+    public void onDismiss(DialogInterface dialog) {
+        mProgressWheel.stopSpinning();
     }
 }

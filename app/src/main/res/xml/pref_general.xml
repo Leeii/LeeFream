@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference
+        android:key="item1"
+        android:summary="memeda"
+        android:title="Preference" />
+    <EditTextPreference
+        android:capitalize="words"
+        android:defaultValue="true"
+        android:inputType="textCapWords"
+        android:key="item2"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:summary="Your Name"
+        android:title="你的名字" />
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="item3"
+        android:summary="看起来厉害，没什么卵用"
+        android:title="神鹰模式" />
+
+    <ListPreference
+        android:dialogTitle="选择解码方式"
+        android:entries="@array/decode"
+        android:entryValues="@array/decode_values"
+        android:key="item4"
+        android:title="解码方式" />
+    <SwitchPreference android:title="免打扰" />
+
+    <MultiSelectListPreference
+        android:entries="@array/decode"
+        android:title="MSLP" />
+</PreferenceScreen>

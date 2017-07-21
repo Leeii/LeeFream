@@ -13,7 +13,6 @@ ext {
 
     defLibVersion = [
             glide               : "4.0.0-RC0",
-            glidetransformations: "2.0.1",
 
             dagger2             : "2.11",
 

@@ -1,5 +1,6 @@
 package cn.leeii.simple.di.component;
 
+import com.leeiidesu.libcore.android.Toaster;
 import com.leeiidesu.libmvp.base.AbstractApplication;
 import com.leeiidesu.libmvp.di.module.ApplicationModule;
 import com.leeiidesu.libmvp.di.module.RequestModule;
@@ -23,4 +24,6 @@ public interface BaseComponent {
     APIService api();
 
     void inject(Simple simple);
+
+    Toaster toaster();
 }

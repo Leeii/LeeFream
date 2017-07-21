@@ -1,8 +1,8 @@
 package com.leeiidesu.libmvp.tool;
 
 
-import com.leeiidesu.libcommon.android.Logger;
-import com.leeiidesu.libcommon.util.Check;
+import com.leeiidesu.libcore.android.Logger;
+import com.leeiidesu.libcore.util.Check;
 
 import org.json.JSONArray;
 import org.json.JSONException;

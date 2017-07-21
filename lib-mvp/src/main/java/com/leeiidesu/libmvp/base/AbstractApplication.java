@@ -2,9 +2,9 @@ package com.leeiidesu.libmvp.base;
 
 import android.app.Application;
 
-import com.leeiidesu.libcommon.android.Logger;
-import com.leeiidesu.libcommon.android.PreferencesHelper;
-import com.leeiidesu.libcommon.android.Toaster;
+import com.leeiidesu.libcore.android.Logger;
+import com.leeiidesu.libcore.android.PreferencesHelper;
+import com.leeiidesu.libcore.android.Toaster;
 import com.leeiidesu.libmvp.di.module.ApplicationModule;
 import com.leeiidesu.libmvp.di.module.RequestModule;
 import com.leeiidesu.libmvp.di.module.RxModule;

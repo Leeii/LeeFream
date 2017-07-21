@@ -1,59 +1,46 @@
 package cn.leeii.simple.ui.main;
 
-import android.app.Activity;
-import android.widget.Toast;
-
 import com.alibaba.fastjson.JSON;
-import com.leeiidesu.libcommon.android.Toaster;
+import com.leeiidesu.libcore.android.Toaster;
 import com.leeiidesu.libmvp.mvp.BasePresenter;
 
 import javax.inject.Inject;
 
 import cn.leeii.simple.data.Response;
 import cn.leeii.simple.data.entity.User;
-import cn.nekocode.rxlifecycle.RxLifecycle;
-import io.reactivex.Scheduler;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Action;
+import cn.leeii.simple.utils.RxTransformer;
 import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 
 /**
  * _ MainPresenter _ Created by dgg on 2017/6/19.
  */
 
 public class MainPresenter extends BasePresenter<MainContract.IMainView, MainContract.IMainModel> {
+    private final Toaster mToaster;
+
     @Inject
-    MainPresenter(MainContract.IMainView mView, MainContract.IMainModel iModel) {
+    MainPresenter(MainContract.IMainView mView, MainContract.IMainModel iModel, Toaster mToaster) {
         super(mView, iModel);
+        this.mToaster = mToaster;
     }
 
-    public void login(String username, String password) {
+    void login(String username, String password) {
         mModel.login(1, username, password)
-                .subscribeOn(Schedulers.io())
-                .compose(RxLifecycle.bind((Activity) mView.context()).<Response<User>>withObservable())
-                .doOnSubscribe(new Consumer<Disposable>() {
-                    @Override
-                    public void accept(Disposable disposable) throws Exception {
-                        mView.showLoading();
-                    }
-                })
-                .doOnTerminate(new Action() {
-                    @Override
-                    public void run() throws Exception {
-                        mView.dismissLoading();
-                    }
-                })
-                .subscribeOn(AndroidSchedulers.mainThread())
-                .observeOn(AndroidSchedulers.mainThread())
+
+                .compose(RxTransformer.<Response<User>>applySchedulers(mView))
+
                 .subscribe(new Consumer<Response<User>>() {
                     @Override
                     public void accept(Response<User> userResponse) throws Exception {
-                        Toast.makeText(mView.context(), JSON.toJSONString(userResponse), Toast.LENGTH_LONG).show();
+                        User user = userResponse.value;
+                        mToaster.showSingletonToast(JSON.toJSONString(userResponse));
+//                        Toast.makeText(mView.context(), JSON.toJSONString(userResponse), Toast.LENGTH_LONG).show();
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+
                     }
                 });
-
-
     }
 }

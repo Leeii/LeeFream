@@ -1,6 +1,6 @@
 package com.leeiidesu.libmvp.di.module;
 
-import com.leeiidesu.libcommon.android.Toaster;
+import com.leeiidesu.libcore.android.Toaster;
 import com.leeiidesu.libmvp.base.AbstractApplication;
 
 import javax.inject.Singleton;

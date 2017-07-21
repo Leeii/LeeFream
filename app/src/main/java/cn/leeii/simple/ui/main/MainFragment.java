@@ -1,16 +1,20 @@
 package cn.leeii.simple.ui.main;
 
+import android.Manifest;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ImageView;
 
-import butterknife.ButterKnife;
+import com.leeiidesu.lib.common.loader.ImageLoader;
+import com.leeiidesu.lib.permission.PermissionHelper;
+
+import butterknife.BindView;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import cn.leeii.simple.R;
 import cn.leeii.simple.base.BaseFragment;
 import cn.leeii.simple.di.component.BaseComponent;
+import cn.leeii.simple.ui.ref.RefreshTestActivity;
 
 /**
  * _ MainFragment _ Created by dgg on 2017/6/19.
@@ -20,6 +24,10 @@ public class MainFragment extends BaseFragment<Main2Activity, MainPresenter> imp
 
 
     Unbinder unbinder;
+    @BindView(R.id.imageView2)
+    ImageView mImageView2;
+    Unbinder unbinder1;
+
 
     @Override
     protected void setupComponent(BaseComponent baseComponent) {
@@ -43,11 +51,18 @@ public class MainFragment extends BaseFragment<Main2Activity, MainPresenter> imp
                 mPresenter.login("18782251053", "0");
                 break;
             case R.id.button3:
+                startActivity(RefreshTestActivity.class, false);
                 break;
             case R.id.button4:
+//                startActivity(SettingActivity.class, false);
+
+                PermissionHelper.request(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE});
                 break;
             case R.id.button5:
+                ImageLoader.load("http://upload-images.jianshu.io/upload_images/2542851-2ac4334507f3908f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+                        , mImageView2);
                 break;
         }
     }
+
 }

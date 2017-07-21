@@ -1,6 +1,8 @@
 package cn.leeii.simple;
 
 
+import com.leeiidesu.lib.common.loader.ImageLoader;
+import com.leeiidesu.lib.common.loader.Option;
 import com.leeiidesu.libmvp.base.AbstractApplication;
 
 import cn.leeii.simple.di.component.BaseComponent;
@@ -25,6 +27,15 @@ public class Simple extends AbstractApplication {
                 .build();
 
         mBaseComponent.inject(this);
+
+
+        ImageLoader.setDefaultOption(
+                Option.builder()
+//                        .circleCrop()
+                        .placeholder(R.mipmap.ic_launcher)
+                        .round(15)
+                        .build()
+        );
     }
 
     @Override

@@ -17,7 +17,7 @@ import java.io.File;
 public class ImageLoader {
     private static ILoader mLoaderImpl = new GlideLoaderImpl();
 
-    private static Option defaultOption;
+    private static Option defaultOption = Option.builder().build();
 
     public static void load(String url, ImageView target) {
         load(url, target, defaultOption, null);

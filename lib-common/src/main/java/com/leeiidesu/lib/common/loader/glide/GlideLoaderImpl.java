@@ -76,8 +76,11 @@ public class GlideLoaderImpl implements ILoader {
     private void doLoad(RequestBuilder<Drawable> load, ImageView target, Option option, final OnLoaderListener l) {
         if (target == null && l == null)
             throw new IllegalArgumentException("不能target 与 listener 同时为null");
+        RequestOptions requestOptions;
         //设置占位图
-        RequestOptions requestOptions = RequestOptions.placeholderOf(option.getPlaceholder());
+        if (option.getPlaceholder() != 0)
+            requestOptions = RequestOptions.placeholderOf(option.getPlaceholder());
+        else requestOptions = new RequestOptions();
 
         if (option.getError() != 0) {
             //设置加载失败图

@@ -18,7 +18,7 @@ public class MainAdapter extends SimpleItemAdapter {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        TextView viewAsClass = holder.getViewAsClass(R.id.text, TextView.class);
+        TextView viewAsClass = holder.getViewAs(R.id.text);
 
         String s = viewAsClass.getText().toString();
 

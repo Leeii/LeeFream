@@ -22,6 +22,10 @@ public class Option {
         return round != 0;
     }
 
+    void setPlaceholder(int placeholder) {
+        this.placeholder = placeholder;
+    }
+
 
     public static class Builder {
         private Option mOption;

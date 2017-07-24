@@ -1,12 +1,14 @@
 package cn.leeii.simple.ui.main;
 
-import android.Manifest;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.leeiidesu.lib.common.loader.ImageLoader;
-import com.leeiidesu.lib.permission.PermissionHelper;
+import com.leeiidesu.lib.widget.banner.BannerView;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -27,6 +29,8 @@ public class MainFragment extends BaseFragment<Main2Activity, MainPresenter> imp
     @BindView(R.id.imageView2)
     ImageView mImageView2;
     Unbinder unbinder1;
+    @BindView(R.id.banner)
+    BannerView mBanner;
 
 
     @Override
@@ -41,7 +45,17 @@ public class MainFragment extends BaseFragment<Main2Activity, MainPresenter> imp
 
     @Override
     protected void trySetupData(Bundle savedInstanceState) {
+        ArrayList<Uri> uris = new ArrayList<>();
+        uris.add(Uri.parse("http://www.jcodecraeer.com/uploads/userup/4117/myface.jpg"));
+        uris.add(Uri.parse("http://upload.jianshu.io/users/upload_avatars/3846387/27dae6b8-88b2-430a-bba7-4cfaf00a6280.jpg"));
+        uris.add(Uri.parse("http://upload.jianshu.io/users/upload_avatars/3846387/27dae6b8-88b2-430a-bba7-4cfaf00a6280.jpg"));
+        uris.add(Uri.parse("http://www.jcodecraeer.com/uploads/userup/4117/myface.jpg"));
+        uris.add(Uri.parse("http://upload-images.jianshu.io/upload_images/2525548-1258cc8bc5291aaa.png"));
+        uris.add(Uri.parse("http://upload.jianshu.io/users/upload_avatars/3846387/27dae6b8-88b2-430a-bba7-4cfaf00a6280.jpg"));
 
+
+
+        mBanner.setBannerUrl(uris);
     }
 
     @OnClick({R.id.button2, R.id.button3, R.id.button4, R.id.button5})
@@ -55,11 +69,17 @@ public class MainFragment extends BaseFragment<Main2Activity, MainPresenter> imp
                 break;
             case R.id.button4:
 //                startActivity(SettingActivity.class, false);
+                ArrayList<Uri> uris = new ArrayList<>();
+        uris.add(Uri.parse("http://www.jcodecraeer.com/uploads/userup/4117/myface.jpg"));
+        uris.add(Uri.parse("http://upload.jianshu.io/users/upload_avatars/3846387/27dae6b8-88b2-430a-bba7-4cfaf00a6280.jpg"));
+        uris.add(Uri.parse("http://upload-images.jianshu.io/upload_images/2525548-1258cc8bc5291aaa.png"));
+        uris.add(Uri.parse("http://upload.jianshu.io/users/upload_avatars/3846387/27dae6b8-88b2-430a-bba7-4cfaf00a6280.jpg"));
 
-                PermissionHelper.request(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE});
+
+                mBanner.setBannerUrl(uris);
                 break;
             case R.id.button5:
-                ImageLoader.load("http://upload-images.jianshu.io/upload_images/2542851-2ac4334507f3908f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+                ImageLoader.load("http://upload-images.jianshu.io/upload_images/2525548-1258cc8bc5291aaa.png"
                         , mImageView2);
                 break;
         }

@@ -42,4 +42,13 @@
         android:layout_height="150dp"
         android:layout_gravity="center_horizontal"
         app:srcCompat="@mipmap/ic_launcher" />
+
+    <com.leeiidesu.lib.widget.banner.BannerView
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:autoSwitchTimeMillis="4000"
+        app:indicatorNormalHollow="true"
+        app:indicatorNormalColor="#808080"
+        app:indicatorSelectedColor="#ff0000" />
 </LinearLayout>

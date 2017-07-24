@@ -12,7 +12,6 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
@@ -82,6 +81,8 @@ public class GlideLoaderImpl implements ILoader {
             requestOptions = RequestOptions.placeholderOf(option.getPlaceholder());
         else requestOptions = new RequestOptions();
 
+        requestOptions.centerCrop();
+
         if (option.getError() != 0) {
             //设置加载失败图
             requestOptions.error(option.getError());
@@ -91,8 +92,9 @@ public class GlideLoaderImpl implements ILoader {
             requestOptions.circleCrop();
         } else if (option.hasRound()) {
             //圆角
-            requestOptions.transform(new RoundedCorners(option.getRound()));
+            requestOptions.transform(new com.leeiidesu.lib.common.loader.glide.RoundedCorners(option.getRound()));
         }
+
 
         //回调
         if (l != null) {
@@ -111,6 +113,8 @@ public class GlideLoaderImpl implements ILoader {
                 }
             });
         }
+
+
 
         load.thumbnail(0.1f)
                 .apply(requestOptions);

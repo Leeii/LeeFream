@@ -119,6 +119,10 @@ public class ImageLoader {
         ImageLoader.defaultOption = defaultOption;
     }
 
+    public static void setDefaultPlaceholder(@DrawableRes int placeholder) {
+        ImageLoader.defaultOption.setPlaceholder(placeholder);
+    }
+
     public static void setLoaderImpl(ILoader mLoaderImpl) {
         ImageLoader.mLoaderImpl = mLoaderImpl;
     }

@@ -33,7 +33,7 @@ public class Simple extends AbstractApplication {
                 Option.builder()
 //                        .circleCrop()
                         .placeholder(R.mipmap.ic_launcher)
-                        .round(15)
+                        .round(30)
                         .build()
         );
     }

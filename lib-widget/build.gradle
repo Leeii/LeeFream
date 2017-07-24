@@ -29,4 +29,6 @@ dependencies {
     compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.2-alpha-8'
 
     compile project(':lib-core')
+    provided project(':lib-common')
+
 }

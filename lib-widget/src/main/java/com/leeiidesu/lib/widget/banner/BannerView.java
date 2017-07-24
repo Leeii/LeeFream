@@ -94,6 +94,24 @@ public class BannerView extends FrameLayout implements ViewPager.OnPageChangeLis
 
     private Handler mHandler;
 
+    public void setIndicatorView(Indicator mIndicatorView) {
+        this.mIndicatorView = mIndicatorView;
+        if (mIndicatorView instanceof View) {
+            View indicatorView = (View) mIndicatorView;
+
+            LayoutParams params2 = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT);
+
+            params2.gravity = Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM;
+
+            params2.bottomMargin = UIUtil.dipToPx(indicatorView.getContext(), 16);
+
+            indicatorView.setLayoutParams(params2);
+
+            addView(indicatorView);
+        }
+    }
+
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();

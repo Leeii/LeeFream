@@ -4,7 +4,7 @@
 
 通信用的是[AndroidEventBus](https://github.com/hehonghui/AndroidEventBus)
 
-`带插件，可自动生成一个页面的MVP代码`
+带插件，可自动生成一个页面的MVP代码 插件名 `Generate M.V.P code`
 
 **插件效果**
 

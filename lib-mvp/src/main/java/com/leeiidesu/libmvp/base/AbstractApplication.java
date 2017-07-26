@@ -21,7 +21,6 @@ public abstract class AbstractApplication extends Application {
     @Inject
     Toaster mToaster;
 
-
     @Override
     public void onCreate() {
         super.onCreate();
@@ -33,13 +32,6 @@ public abstract class AbstractApplication extends Application {
      * 是否是debug模式
      */
     protected abstract boolean isDebug();
-
-    /**
-     * 请求HOST_URL
-     *
-     * @return HOST_URL
-     */
-    protected abstract String getBaseUrl();
 
     /**
      * 请求拦截器
@@ -61,8 +53,7 @@ public abstract class AbstractApplication extends Application {
     }
 
     public RequestModule getRequestModule() {
-        return new RequestModule(getBaseUrl(), getInterceptors());
-
+        return new RequestModule(getInterceptors());
     }
 
     public ApplicationModule getApplicationModule() {

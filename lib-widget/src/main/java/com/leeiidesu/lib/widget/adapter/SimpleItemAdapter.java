@@ -97,11 +97,11 @@ public abstract class SimpleItemAdapter extends RecyclerView.Adapter<SimpleItemA
     private OnItemClickListener mOnItemClickListener;
     private OnItemLongClickListener mOnItemLongClickListener;
 
-    public void setmOnItemClickListener(OnItemClickListener mOnItemClickListener) {
+    public void setOnItemClickListener(OnItemClickListener mOnItemClickListener) {
         this.mOnItemClickListener = mOnItemClickListener;
     }
 
-    public void setmOnItemLongClickListener(OnItemLongClickListener mOnItemLongClickListener) {
+    public void setOnItemLongClickListener(OnItemLongClickListener mOnItemLongClickListener) {
         this.mOnItemLongClickListener = mOnItemLongClickListener;
     }
 }

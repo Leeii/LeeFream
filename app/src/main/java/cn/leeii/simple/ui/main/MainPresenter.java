@@ -1,27 +1,25 @@
 package cn.leeii.simple.ui.main;
 
 import com.alibaba.fastjson.JSON;
-import com.leeiidesu.libcore.android.Toaster;
 import com.leeiidesu.libmvp.mvp.BasePresenter;
+import com.leeiidesu.libmvp.tool.RxTransformer;
+import com.leeiidesu.libmvp.tool.SimpleObserver;
 
 import javax.inject.Inject;
 
 import cn.leeii.simple.data.Response;
 import cn.leeii.simple.data.entity.User;
-import cn.leeii.simple.utils.RxTransformer;
-import io.reactivex.functions.Consumer;
+import io.reactivex.annotations.NonNull;
 
 /**
  * _ MainPresenter _ Created by dgg on 2017/6/19.
  */
 
 public class MainPresenter extends BasePresenter<MainContract.IMainView, MainContract.IMainModel> {
-    private final Toaster mToaster;
 
     @Inject
-    MainPresenter(MainContract.IMainView mView, MainContract.IMainModel iModel, Toaster mToaster) {
+    MainPresenter(MainContract.IMainView mView, MainContract.IMainModel iModel) {
         super(mView, iModel);
-        this.mToaster = mToaster;
     }
 
     void login(String username, String password) {
@@ -29,17 +27,11 @@ public class MainPresenter extends BasePresenter<MainContract.IMainView, MainCon
 
                 .compose(RxTransformer.<Response<User>>applySchedulers(mView))
 
-                .subscribe(new Consumer<Response<User>>() {
+                .subscribe(new SimpleObserver<Response<User>>() {
                     @Override
-                    public void accept(Response<User> userResponse) throws Exception {
+                    public void onNext(@NonNull Response<User> userResponse) {
                         User user = userResponse.value;
-                        mToaster.showSingletonToast(JSON.toJSONString(userResponse));
-//                        Toast.makeText(mView.context(), JSON.toJSONString(userResponse), Toast.LENGTH_LONG).show();
-                    }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-
+                        mView.Tips(JSON.toJSONString(user));
                     }
                 });
     }

@@ -1,8 +1,11 @@
 package cn.leeii.simple;
 
 
+import android.graphics.Color;
+
 import com.leeiidesu.lib.common.loader.ImageLoader;
 import com.leeiidesu.lib.common.loader.Option;
+import com.leeiidesu.libcore.android.UIUtil;
 import com.leeiidesu.libmvp.base.AbstractApplication;
 
 import cn.leeii.simple.di.component.BaseComponent;
@@ -33,23 +36,19 @@ public class Simple extends AbstractApplication {
                 Option.builder()
 //                        .circleCrop()
                         .placeholder(R.mipmap.ic_launcher)
-                        .round(30)
+                        .round(UIUtil.dipToPx(this,150))
+                        .stroke(15, Color.RED)
                         .build()
         );
     }
 
     @Override
     protected boolean isDebug() {
-        return BuildConfig.DEBUG;
+        return true;
     }
 
     public BaseComponent getBaseComponent() {
         return mBaseComponent;
-    }
-
-    @Override
-    protected String getBaseUrl() {
-        return API.BASE_URL;
     }
 
     @Override

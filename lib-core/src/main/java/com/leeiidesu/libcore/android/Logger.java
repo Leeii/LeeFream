@@ -85,7 +85,7 @@ public class Logger {
             }
             return sb.toString();
         }
-        return "";
+        return " ";
     }
 
     /**

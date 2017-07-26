@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="#666666"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
@@ -36,10 +37,19 @@
         android:background="#a88585"
         android:text="Button" />
 
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:background="#a88585"
+        android:text="Clear cache" />
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_height="180dp"
         android:layout_gravity="center_horizontal"
         app:srcCompat="@mipmap/ic_launcher" />
 
@@ -48,7 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:autoSwitchTimeMillis="4000"
-        app:indicatorNormalHollow="true"
         app:indicatorNormalColor="#808080"
+        app:indicatorNormalHollow="true"
         app:indicatorSelectedColor="#ff0000" />
 </LinearLayout>

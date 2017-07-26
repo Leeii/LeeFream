@@ -89,10 +89,10 @@ public class GlideLoaderImpl implements ILoader {
         }
         if (option.isCircleCrop()) {
             //圆图
-            requestOptions.circleCrop();
-        } else if (option.hasRound()) {
+            requestOptions.transform(new CircleCropTransformation(option.getStrokeWidth(), option.getStrokeColor()));
+        } else if (option.hasRound() || option.hanStroke()) {
             //圆角
-            requestOptions.transform(new com.leeiidesu.lib.common.loader.glide.RoundedCorners(option.getRound()));
+            requestOptions.transform(new RoundedTransformation(option.getRound(), option.getStrokeWidth(), option.getStrokeColor()));
         }
 
 
@@ -113,7 +113,6 @@ public class GlideLoaderImpl implements ILoader {
                 }
             });
         }
-
 
 
         load.thumbnail(0.1f)

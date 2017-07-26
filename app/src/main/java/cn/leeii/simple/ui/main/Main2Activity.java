@@ -18,6 +18,8 @@ public class Main2Activity extends BaseActivity<MainPresenter> {
     @Override
     protected void trySetupData(Bundle savedInstanceState) {
         setSupportActionBar(toolbar);
+
+//        mToaster.showSingletonToast("tao");
     }
 
     @Override

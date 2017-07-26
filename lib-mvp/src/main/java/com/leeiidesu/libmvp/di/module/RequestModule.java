@@ -23,11 +23,9 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 public class RequestModule {
 
     private Interceptor[] mInterceptors;
-    private String mBaseUrl;
 
-    public RequestModule(String mBaseUrl, Interceptor... mInterceptors) {
+    public RequestModule(Interceptor... mInterceptors) {
         this.mInterceptors = mInterceptors;
-        this.mBaseUrl = mBaseUrl;
     }
 
     /**
@@ -45,12 +43,6 @@ public class RequestModule {
     Retrofit provideRetrofit(OkHttpClient client, String httpUrl) {
         final Retrofit.Builder builder = new Retrofit.Builder();
         return configureRetrofit(builder, client, httpUrl);
-    }
-
-    @Singleton
-    @Provides
-    String provideBaseUrl() {
-        return mBaseUrl;
     }
 
     @Singleton

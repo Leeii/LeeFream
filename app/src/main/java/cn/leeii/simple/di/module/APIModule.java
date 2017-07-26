@@ -2,6 +2,7 @@ package cn.leeii.simple.di.module;
 
 import javax.inject.Singleton;
 
+import cn.leeii.simple.API;
 import cn.leeii.simple.APIService;
 import dagger.Module;
 import dagger.Provides;
@@ -16,5 +17,11 @@ public class APIModule {
     @Provides
     APIService providerAPIService(Retrofit retrofit) {
         return retrofit.create(APIService.class);
+    }
+
+    @Singleton
+    @Provides
+    String providerHostUrl() {
+        return API.BASE_URL;
     }
 }

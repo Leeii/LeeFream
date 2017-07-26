@@ -19,6 +19,22 @@ public class ImageLoader {
 
     private static Option defaultOption = Option.builder().build();
 
+    public static void clearMemoryCache(Context context) {
+        mLoaderImpl.clearMemoryCache(context);
+    }
+
+    public static void clearDiskCache(Context context) {
+        mLoaderImpl.clearDiskCache(context);
+    }
+
+    public static void pauseLoad(Context context) {
+        mLoaderImpl.pauseLoad(context);
+    }
+
+    public static void resumeLoad(Context context) {
+        mLoaderImpl.resumeLoad(context);
+    }
+
     public static void load(String url, ImageView target) {
         load(url, target, defaultOption, null);
     }

@@ -15,11 +15,13 @@
         android:theme="@style/AppTheme2">
         <activity
             android:name=".ui.main.Main2Activity"
-            android:theme="@style/AppTheme2"> <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:theme="@style/AppTheme2">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".ui.ref.RefreshTestActivity" />
         <activity
             android:name=".ui.MainActivity"
@@ -27,7 +29,7 @@
             android:theme="@style/AppTheme2">
 
         </activity>
-        <activity android:name=".ui.main.SettingActivity"></activity>
+        <activity android:name=".ui.videopicker.VideoPickerActivity"></activity>
     </application>
 
 </manifest>

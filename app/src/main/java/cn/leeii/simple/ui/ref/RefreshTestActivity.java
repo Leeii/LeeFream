@@ -32,7 +32,7 @@ public class RefreshTestActivity extends BaseActivity<RefreshTestPresenter> impl
 
         recycler.setAdapter(mainAdapter);
 
-        mainAdapter.setmOnItemClickListener(new OnItemClickListener() {
+        mainAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(View itemView, int position) {
                 Log.e("TAG", "position = " + position);

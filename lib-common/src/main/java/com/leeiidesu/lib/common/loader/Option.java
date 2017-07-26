@@ -1,5 +1,6 @@
 package com.leeiidesu.lib.common.loader;
 
+import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
 
 /**
@@ -7,6 +8,11 @@ import android.support.annotation.DrawableRes;
  */
 
 public class Option {
+    private int strokeWidth;
+    private
+    @ColorInt
+    int strokeColor;
+
     private int round;
 
     private int placeholder;
@@ -19,7 +25,11 @@ public class Option {
     }
 
     public boolean hasRound() {
-        return round != 0;
+        return round > 0;
+    }
+
+    public boolean hanStroke() {
+        return strokeWidth > 0;
     }
 
     void setPlaceholder(int placeholder) {
@@ -55,6 +65,12 @@ public class Option {
             return this;
         }
 
+        public Builder stroke(int width, @ColorInt int color) {
+            mOption.strokeWidth = width;
+            mOption.strokeColor = color;
+            return this;
+        }
+
         public Option build() {
             return mOption;
         }
@@ -74,5 +90,13 @@ public class Option {
 
     public boolean isCircleCrop() {
         return circleCrop;
+    }
+
+    public int getStrokeWidth() {
+        return strokeWidth;
+    }
+
+    public int getStrokeColor() {
+        return strokeColor;
     }
 }

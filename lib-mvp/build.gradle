@@ -24,25 +24,26 @@ dependencies {
     compile "com.android.support:appcompat-v7:${rootProject.ext.android["supportSdkVersion"]}"
     compile "com.android.support:design:${rootProject.ext.android["supportSdkVersion"]}"
 
+    //rxjava
     compile "io.reactivex.rxjava2:rxandroid:${rootProject.ext.defLibVersion["rxandroid"]}"
-    // Because RxAndroid releases are few and far between, it is recommended you also
-    // explicitly depend on RxJava's latest version for bug fixes and new features.
     compile "io.reactivex.rxjava2:rxjava:${rootProject.ext.defLibVersion["rxjava"]}"
     compile "com.github.nekocode.rxlifecycle:rxlifecycle:${rootProject.ext.defLibVersion["rxlifecycle"]}"
 
-
+    //butterknife
     compile "com.jakewharton:butterknife:${rootProject.ext.defLibVersion["butterknife"]}"
 
+    //retrofit
     compile "com.squareup.retrofit2:retrofit:${rootProject.ext.defLibVersion["retrofit"]}"
     compile "com.squareup.retrofit2:adapter-rxjava2:${rootProject.ext.defLibVersion["retrofit"]}"
 
+    //json
     compile "com.alibaba:fastjson:${rootProject.ext.defLibVersion["fastjson"]}"
+    //dagger2
     annotationProcessor "com.google.dagger:dagger-compiler:${rootProject.ext.defLibVersion["dagger2"]}"
     compile "com.google.dagger:dagger:${rootProject.ext.defLibVersion["dagger2"]}"
+
     // eventbus
     compile 'org.simple:androideventbus:1.0.5.1'
-
-
 
     compile project(':lib-core')
 }

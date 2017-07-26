@@ -1,4 +1,4 @@
-package cn.leeii.simple.utils;
+package com.leeiidesu.libmvp.tool;
 
 import android.app.Activity;
 

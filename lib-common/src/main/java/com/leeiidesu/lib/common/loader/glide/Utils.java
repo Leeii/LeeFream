@@ -169,6 +169,7 @@ class Utils {
         paint.setStyle(Paint.Style.FILL);
         RectF rect = new RectF(0, 0, result.getWidth(), result.getHeight());
         //画布
+        BITMAP_DRAWABLE_LOCK.lock();
         try {
             Canvas canvas = new Canvas(result);
 

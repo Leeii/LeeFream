@@ -45,6 +45,14 @@
         android:layout_marginTop="24dp"
         android:background="#a88585"
         android:text="Clear cache" />
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:background="#a88585"
+        android:text="WebView" />
 
     <ImageView
         android:id="@+id/imageView2"

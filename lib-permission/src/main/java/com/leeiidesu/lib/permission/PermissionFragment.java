@@ -1,7 +1,6 @@
 package com.leeiidesu.lib.permission;
 
 import android.annotation.TargetApi;
-import android.app.Fragment;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -12,8 +11,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
+
+import com.leeiidesu.lib.permission.listener.OnPermissionResultListener;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -23,6 +25,7 @@ import java.util.Locale;
  */
 
 public class PermissionFragment extends Fragment {
+    static final String TAG = PermissionFragment.class.getSimpleName();
 
     private OnPermissionResultListener l;
     private Config mConfig;
@@ -48,12 +51,18 @@ public class PermissionFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        Log.i(TAG, "permission fragment onAttach(context)");
+        attachContext();
+    }
+
+    private void attachContext() {
         String[] permissions = getArguments().getStringArray("permissions");
         Config config = getArguments().getParcelable("config");
 
         assert permissions != null;
         requestPermissions(permissions, config);
     }
+
 
     void requestPermissions(String[] permissions, Config config) {
         mConfig = config;
@@ -150,7 +159,7 @@ public class PermissionFragment extends Fragment {
         ArrayList<String> deniedPermissions = new ArrayList<>();
         if (requestCode == 0x1001) {
             for (int i = 0; i < permissions.length; i++) {
-                Log.i("PermissionHelper", String.format(Locale.CHINA,
+                Log.i(TAG, String.format(Locale.CHINA,
                         "PermissionName = %s,isGrant = %s",
                         permissions[i],
                         grantResults[i] == PackageManager.PERMISSION_GRANTED));

@@ -13,8 +13,7 @@ import java.security.MessageDigest;
  * _ CircleCropTransformation _ Created by dgg on 2017/7/26.
  */
 
-public class CircleCropTransformation extends BitmapTransformation { // The version of this transformation, incremented to correct an error in a previous version.
-    // See #455.
+public class CircleCropTransformation extends BitmapTransformation {
     private static final int VERSION = 1;
     private static final String ID = "com.leeiidesu.lib.common.loader.glide.CircleCropTransformation." + VERSION;
     private static final byte[] ID_BYTES = ID.getBytes(CHARSET);

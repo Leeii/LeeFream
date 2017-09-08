@@ -1,10 +1,13 @@
 package cn.leeii.simple.ui.videopicker.loader.entity;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * _ Video _ Created by dgg on 2017/7/26.
  */
 
-public class Video {
+public class Video implements Parcelable {
     private int id;
     private long duration;
     private String path;
@@ -19,6 +22,25 @@ public class Video {
 
     public Video() {
     }
+
+    protected Video(Parcel in) {
+        id = in.readInt();
+        duration = in.readLong();
+        path = in.readString();
+        size = in.readLong();
+    }
+
+    public static final Creator<Video> CREATOR = new Creator<Video>() {
+        @Override
+        public Video createFromParcel(Parcel in) {
+            return new Video(in);
+        }
+
+        @Override
+        public Video[] newArray(int size) {
+            return new Video[size];
+        }
+    };
 
     @Override
     public boolean equals(Object o) {
@@ -61,5 +83,18 @@ public class Video {
 
     public long getSize() {
         return size;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeLong(duration);
+        dest.writeString(path);
+        dest.writeLong(size);
     }
 }

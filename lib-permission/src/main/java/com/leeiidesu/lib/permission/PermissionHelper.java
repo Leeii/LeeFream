@@ -1,12 +1,9 @@
 package com.leeiidesu.lib.permission;
 
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.os.Build;
-import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 
 
 /**
@@ -14,66 +11,31 @@ import android.support.annotation.NonNull;
  */
 
 public class PermissionHelper {
-    private static final String FRAGMENT_TAG = "PERMISSION_FRAGMENT__";
 
-    private PermissionHelper() {
+    private final FragmentManager mFragmentManager;
 
+    private PermissionHelper(FragmentManager fm) {
+        this.mFragmentManager = fm;
     }
 
-    public static void request(@NonNull Activity activity,
-                               @NonNull String[] permissions) {
-        request(activity.getFragmentManager(), permissions, null, null);
+
+    public static PermissionHelper with(FragmentActivity activity) {
+        return with(activity.getSupportFragmentManager());
     }
 
-    public static void request(@NonNull Activity activity,
-                               @NonNull String[] permissions,
-                               Config config,
-                               OnPermissionResultListener l) {
-        request(activity.getFragmentManager(), permissions, config, l);
+    public static PermissionHelper with(Fragment fragment) {
+        return with(fragment.getFragmentManager());
     }
 
-    public static void request(@NonNull Fragment fragment,
-                               @NonNull String[] permissions) {
-        request(fragment.getFragmentManager(), permissions, null, null);
+    public static PermissionHelper with(FragmentManager fm) {
+        return new PermissionHelper(fm);
     }
 
-    public static void request(@NonNull Fragment fragment,
-                               @NonNull String[] permissions,
-                               Config config,
-                               OnPermissionResultListener l) {
-        request(fragment.getFragmentManager(), permissions, config, l);
-    }
 
-    public static void request(@NonNull android.support.v4.app.Fragment fragment,
-                               @NonNull String[] permissions) {
-        request(fragment.getActivity().getFragmentManager(), permissions, null, null);
-    }
-
-    public static void request(@NonNull android.support.v4.app.Fragment fragment,
-                               @NonNull String[] permissions,
-                               Config config,
-                               OnPermissionResultListener l) {
-        request(fragment.getActivity().getFragmentManager(), permissions, config, l);
-    }
-
-    public static void request(@NonNull FragmentManager fm,
-                               @NonNull String[] permissions,
-                               Config config,
-                               OnPermissionResultListener l) {
-        PermissionFragment fragment = (PermissionFragment) fm.findFragmentByTag(FRAGMENT_TAG);
-        if (fragment == null) {
-            fragment = PermissionFragment.newInstance(config, l, permissions);
-
-            final FragmentTransaction transaction = fm.beginTransaction();
-            transaction.add(fragment, FRAGMENT_TAG);
-            transaction.commit();
-
-        } else if (Build.VERSION.SDK_INT >= 13 && fragment.isDetached()) {
-            final FragmentTransaction transaction = fm.beginTransaction();
-            transaction.attach(fragment);
-            transaction.commit();
-        } else {
-            fragment.requestPermissions(permissions, config);
+    public Request permissions(String... permissions) {
+        if (permissions != null && permissions.length > 0) {
+            return new RequestImpl(mFragmentManager, permissions);
         }
+        throw new IllegalArgumentException("Require at least one permission");
     }
 }

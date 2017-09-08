@@ -3,7 +3,6 @@ package com.leeiidesu.lib.widget.banner;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -22,7 +21,7 @@ import com.leeiidesu.lib.common.loader.ImageLoader;
 import com.leeiidesu.lib.widget.R;
 import com.leeiidesu.libcore.android.UIUtil;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * _ BannerView _ Created by dgg on 2017/7/21.
@@ -173,7 +172,7 @@ public class BannerView extends FrameLayout implements ViewPager.OnPageChangeLis
 
     }
 
-    public void setBannerUrl(ArrayList<Uri> data) {
+    public void setBannerUrl(List<String> data) {
         if (data == null) return;
 
         mBannerAdapter.setData(data);
@@ -215,7 +214,7 @@ public class BannerView extends FrameLayout implements ViewPager.OnPageChangeLis
     }
 
     private static class BannerAdapter extends PagerAdapter {
-        private ArrayList<Uri> data;
+        private List<String> data;
         private boolean unLimitedLoop;
 
         private int size;
@@ -225,7 +224,7 @@ public class BannerView extends FrameLayout implements ViewPager.OnPageChangeLis
         }
 
 
-        public void setData(ArrayList<Uri> data) {
+        public void setData(List<String> data) {
             this.data = data;
 
             size = data == null || data.size() == 0 ? 0 : unLimitedLoop ? Integer.MAX_VALUE : data.size();

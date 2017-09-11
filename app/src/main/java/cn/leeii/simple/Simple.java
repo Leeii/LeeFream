@@ -1,11 +1,8 @@
 package cn.leeii.simple;
 
 
-import android.graphics.Color;
-
-import com.leeiidesu.lib.common.loader.ImageLoader;
-import com.leeiidesu.lib.common.loader.Option;
-import com.leeiidesu.libcore.android.UIUtil;
+import com.leeiidesu.lib.common.imageloader.ImageConfiguration;
+import com.leeiidesu.lib.common.imageloader.ImageLoader;
 import com.leeiidesu.libmvp.base.AbstractApplication;
 
 import cn.leeii.simple.di.component.BaseComponent;
@@ -32,12 +29,10 @@ public class Simple extends AbstractApplication {
         mBaseComponent.inject(this);
 
 
-        ImageLoader.setDefaultOption(
-                Option.builder()
-//                        .circleCrop()
-                        .placeholder(R.mipmap.ic_launcher)
-                        .round(UIUtil.dipToPx(this,150))
-                        .stroke(15, Color.RED)
+        ImageLoader.getInstance().init(
+                new ImageConfiguration.Builder()
+                        .placeholder(R.mipmap.loading2)
+                        .errorholder(R.mipmap.faild)
                         .build()
         );
     }

@@ -2,8 +2,6 @@ package cn.leeii.simple.ui.main;
 
 import com.leeiidesu.libmvp.mvp.IContract;
 
-import cn.leeii.simple.data.Response;
-import cn.leeii.simple.data.entity.User;
 import io.reactivex.Observable;
 
 /**
@@ -17,7 +15,6 @@ public interface MainContract {
 
     interface IMainModel extends IContract.IModel{
 
-        Observable<Response<User>> login(int type, String username, String password);
-
+        Observable<String> expressInfo(String name,String expressNo);
     }
 }

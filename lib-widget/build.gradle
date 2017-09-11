@@ -26,7 +26,6 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile "com.android.support:recyclerview-v7:${rootProject.ext.android["supportSdkVersion"]}"
-    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.2-alpha-8'
 
     compile project(':lib-core')
     provided project(':lib-common')

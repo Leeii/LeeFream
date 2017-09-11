@@ -1,14 +1,11 @@
 package cn.leeii.simple.ui.main;
 
-import com.alibaba.fastjson.JSON;
 import com.leeiidesu.libmvp.mvp.BasePresenter;
 import com.leeiidesu.libmvp.tool.RxTransformer;
 import com.leeiidesu.libmvp.tool.SimpleObserver;
 
 import javax.inject.Inject;
 
-import cn.leeii.simple.data.Response;
-import cn.leeii.simple.data.entity.User;
 import io.reactivex.annotations.NonNull;
 
 /**
@@ -22,17 +19,15 @@ public class MainPresenter extends BasePresenter<MainContract.IMainView, MainCon
         super(mView, iModel);
     }
 
-    void login(String username, String password) {
-        mModel.login(1, username, password)
-
-                .compose(RxTransformer.<Response<User>>applySchedulers(mView))
-
-                .subscribe(new SimpleObserver<Response<User>>() {
+    void testApi(String name, String expressNo) {
+        mModel.expressInfo(name, expressNo)
+                .compose(RxTransformer.<String>applySchedulers(mView))
+                .subscribe(new SimpleObserver<String>() {
                     @Override
-                    public void onNext(@NonNull Response<User> userResponse) {
-                        User user = userResponse.value;
-                        mView.Tips(JSON.toJSONString(user));
+                    public void onNext(@NonNull String userResponse) {
+                        mView.Tips(userResponse);
                     }
                 });
     }
+
 }

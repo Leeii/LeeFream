@@ -12,7 +12,6 @@
             <option value="$PROJECT_DIR$/lib-common" />
             <option value="$PROJECT_DIR$/lib-core" />
             <option value="$PROJECT_DIR$/lib-mvp" />
-            <option value="$PROJECT_DIR$/lib-permission" />
             <option value="$PROJECT_DIR$/lib-widget" />
           </set>
         </option>

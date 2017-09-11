@@ -4,7 +4,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.leeiidesu.lib.common.loader.ImageLoader;
+import com.leeiidesu.lib.common.imageloader.ImageLoader;
 import com.leeiidesu.lib.widget.adapter.SimpleItemAdapter;
 import com.leeiidesu.libcore.android.UIUtil;
 
@@ -41,7 +41,7 @@ public class VideoAdapter extends SimpleItemAdapter {
 
         ImageView image = holder.getViewAs(R.id.image);
         String uri = video.getPath();
-        ImageLoader.load(uri, image);
+        ImageLoader.getInstance().display(uri, image);
 
         String format = mSimpleDateFormat.format(new Date(video.getDuration()));
 

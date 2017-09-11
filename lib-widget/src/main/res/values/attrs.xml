@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="BannerView">
+        <attr name="autoSwitch" format="boolean" />
+        <attr name="autoSwitchTimeMillis" format="integer" />
+        <attr name="unLimitedLoop" format="boolean" />
+        <attr name="needIndicator" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="IndicatorView">
         <attr name="indicatorWidth" format="dimension" />
         <attr name="indicatorSelectedColor" format="color" />
         <attr name="indicatorNormalColor" format="color" />
         <attr name="indicatorSpaceWidth" format="dimension" />
         <attr name="indicatorNormalHollow" format="boolean" />
         <attr name="hollowIndicatorStrokeWidth" format="dimension" />
-        <attr name="autoSwitch" format="boolean" />
-        <attr name="autoSwitchTimeMillis" format="integer" />
-        <attr name="unLimitedLoop" format="boolean" />
     </declare-styleable>
 </resources>

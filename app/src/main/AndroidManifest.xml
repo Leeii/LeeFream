@@ -23,13 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.ref.RefreshTestActivity" />
-        <activity
-            android:name=".ui.MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme2">
-
-        </activity>
+        <activity android:name=".ui.img.ImageLoaderTestActivity" />
         <activity android:name=".ui.videopicker.VideoPickerActivity"></activity>
         <activity android:name=".ui.web.WebActivity"></activity>
     </application>

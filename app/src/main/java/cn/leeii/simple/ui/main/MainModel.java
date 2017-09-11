@@ -18,7 +18,7 @@ public class MainModel extends BaseModel<AbstractApplication, APIService> implem
     }
 
     @Override
-    public Observable<Response<User>> login(int type, String username, String password) {
-        return mApiService.login(type,username,password);
+    public Observable<String> expressInfo(String name,String expressNo) {
+        return mApiService.getExpressInfo(name ,expressNo);
     }
 }

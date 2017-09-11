@@ -26,9 +26,8 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile "com.android.support:appcompat-v7:${rootProject.ext.android["supportSdkVersion"]}"
     testCompile 'junit:junit:4.12'
-    compile project(':lib-permission')
     // Glide 图片加载库
     compile "com.github.bumptech.glide:glide:${rootProject.ext.defLibVersion["glide"]}"
 }

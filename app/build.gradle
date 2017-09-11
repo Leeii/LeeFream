@@ -50,4 +50,7 @@ dependencies {
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+
+    //https://github.com/Leeii/PermissionsHelper 权限申请
+    compile 'com.leeiidesu:permission-helper:1.1.3'
 }

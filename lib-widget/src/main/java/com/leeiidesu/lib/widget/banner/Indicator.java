@@ -5,7 +5,6 @@ package com.leeiidesu.lib.widget.banner;
  */
 
 public interface Indicator {
-
     void setSize(int size);
 
     void setSelected(int position);

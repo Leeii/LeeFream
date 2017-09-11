@@ -1,14 +1,11 @@
 package cn.leeii.simple.ui.web;
 
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-
-import com.leeiidesu.libcore.android.Logger;
 
 import butterknife.BindView;
 import cn.leeii.simple.R;
@@ -42,10 +39,7 @@ public class WebActivity extends BaseActivity<WebPresenter> implements WebContra
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setUseWideViewPort(true);
         webView.getSettings().setPluginState(WebSettings.PluginState.ON);
-        Logger.e("TAG",Environment.getExternalStorageDirectory().getAbsolutePath());
-        webView.loadUrl("file://" + Environment.getExternalStorageDirectory() + "/Excel/res/index.html");
-
-//        RequestBody.create(MediaType.parse("text/plain"),"");
+        webView.loadUrl("https://github.com/Leeii/LeeFream");
     }
 
     @Override

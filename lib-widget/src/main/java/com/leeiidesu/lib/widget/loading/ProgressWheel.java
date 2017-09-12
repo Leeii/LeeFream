@@ -1,4 +1,4 @@
-package com.leeiidesu.libmvp.widget;
+package com.leeiidesu.lib.widget.loading;
 
 
 import android.content.Context;
@@ -15,7 +15,8 @@ import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
 
-import cn.leeii.libmvp.R;
+import com.leeiidesu.lib.widget.R;
+
 
 /**
  * 开源加载控件 A Material style progress wheel, compatible up to 2.2. Todd Davies'

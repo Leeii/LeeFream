@@ -1,7 +1,6 @@
 package com.leeiidesu.libmvp.base;
 
 import android.annotation.TargetApi;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.leeiidesu.libmvp.mvp.BasePresenter;
 import com.leeiidesu.libmvp.mvp.IContract;
-import com.leeiidesu.libmvp.widget.LoadingDialog;
 
 import org.simple.eventbus.EventBus;
 
@@ -26,7 +24,6 @@ import butterknife.Unbinder;
 
 public abstract class AbstractActivity<P extends BasePresenter> extends AppCompatActivity implements IContract.IView<P> {
     protected AbstractApplication mApplication;
-    private Dialog mLoadingDialog;
 
     protected P mPresenter;
     private Unbinder mUnBinder;
@@ -106,31 +103,9 @@ public abstract class AbstractActivity<P extends BasePresenter> extends AppCompa
         finish();
     }
 
-    public void setLoadingDialog(Dialog mLoadingDialog) {
-        this.mLoadingDialog = mLoadingDialog;
-    }
-
     @Override
-    public void showLoading() {
-        if (mLoadingDialog == null) {
-            mLoadingDialog = new LoadingDialog(this);
-        }
-        mLoadingDialog.show();
-    }
-
-    @Override
-    public void dismissLoading() {
-        if (mLoadingDialog != null) mLoadingDialog.dismiss();
-    }
-
-    @Override
-    public void Tips(String msg) {
-        mApplication.Tips(msg);
-    }
-
-    @Override
-    public void TipsError(String msg) {
-        mApplication.Tips(msg);
+    public void showToast(String msg) {
+        mApplication.showToast(msg);
     }
 
     @Override

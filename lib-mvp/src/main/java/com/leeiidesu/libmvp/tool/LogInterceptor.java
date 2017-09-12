@@ -37,9 +37,12 @@ public class LogInterceptor implements Interceptor {
             Headers headers = request.headers();
             if (headers != null) {
                 Set<String> headerNames = headers.names();
+
                 for (String headerName : headerNames)
                     Logger.i("Request头",
-                            String.format("Header { Key = %s, Value = %s }",
+                            String.format("Header { Key = %s, Value = %s } UrlParameterEncode = %s=%s",
+                                    headerName,
+                                    headers.get(headerName),
                                     headerName,
                                     headers.get(headerName)));
             }

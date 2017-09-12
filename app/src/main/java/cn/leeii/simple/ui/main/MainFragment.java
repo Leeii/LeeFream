@@ -37,9 +37,12 @@ public class MainFragment extends BaseFragment<Main2Activity, MainPresenter> imp
 
     }
 
-    @OnClick({R.id.testApi, R.id.testPermission, R.id.testImageLoader})
+    @OnClick({R.id.testToast, R.id.testApi, R.id.testPermission, R.id.testImageLoader})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.testToast:
+                showToast("Hello , boy.");
+                break;
             case R.id.testApi:
                 mPresenter.testApi("yuantong", "11111111111");
                 break;

@@ -1,7 +1,6 @@
 package com.leeiidesu.libmvp.base;
 
 import android.annotation.TargetApi;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +12,6 @@ import android.view.ViewGroup;
 
 import com.leeiidesu.libmvp.mvp.BasePresenter;
 import com.leeiidesu.libmvp.mvp.IContract;
-import com.leeiidesu.libmvp.widget.LoadingDialog;
 
 import org.simple.eventbus.EventBus;
 
@@ -34,7 +32,6 @@ public abstract class AbstractFragment<A extends AbstractActivity, P extends Bas
     //Activity
     protected A mActivity;
 
-    private Dialog mLoadingDialog;
 
     @Nullable
     @Override
@@ -112,31 +109,11 @@ public abstract class AbstractFragment<A extends AbstractActivity, P extends Bas
         mActivity.finish();
     }
 
-    public void setLoadingDialog(Dialog mLoadingDialog) {
-        this.mLoadingDialog = mLoadingDialog;
-    }
+
 
     @Override
-    public void showLoading() {
-        if (mLoadingDialog == null) {
-            mLoadingDialog = new LoadingDialog(mActivity);
-        }
-        mLoadingDialog.show();
-    }
-
-    @Override
-    public void dismissLoading() {
-        if (mLoadingDialog != null) mLoadingDialog.dismiss();
-    }
-
-    @Override
-    public void Tips(String msg) {
-        mActivity.Tips(msg);
-    }
-
-    @Override
-    public void TipsError(String msg) {
-        mActivity.Tips(msg);
+    public void showToast(String msg) {
+        mActivity.showToast(msg);
     }
 
     @Override

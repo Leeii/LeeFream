@@ -1,4 +1,4 @@
-package com.leeiidesu.libmvp.widget;
+package com.leeiidesu.lib.widget.loading;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.FrameLayout;
 
+import com.leeiidesu.lib.widget.R;
 import com.leeiidesu.libcore.android.UIUtil;
 
-import cn.leeii.libmvp.R;
 
 /**
  * 加载的圈圈 Created by Lee on 2016/12/26.

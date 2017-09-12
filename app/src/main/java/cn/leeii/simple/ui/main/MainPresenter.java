@@ -25,7 +25,13 @@ public class MainPresenter extends BasePresenter<MainContract.IMainView, MainCon
                 .subscribe(new SimpleObserver<String>() {
                     @Override
                     public void onNext(@NonNull String userResponse) {
-                        mView.Tips(userResponse);
+                        mView.showToast(userResponse);
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        super.onError(e);
+                        e.printStackTrace();
                     }
                 });
     }

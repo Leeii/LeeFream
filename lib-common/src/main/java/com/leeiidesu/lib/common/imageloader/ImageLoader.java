@@ -54,6 +54,12 @@ public class ImageLoader {
         mImageEngine.display(path, target, configuration, callback);
     }
 
+    public void display(Object path,
+                        @NonNull ImageView target,
+                        ImageLoadedCallback callback) {
+        mImageEngine.display(path, target, defaultConfiguration, callback);
+    }
+
     public void loadImage(Object path,
                           @NonNull Context context,
                           @NonNull ImageLoadedCallback callback) {

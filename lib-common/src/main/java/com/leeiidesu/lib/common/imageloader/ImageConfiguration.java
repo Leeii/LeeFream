@@ -40,6 +40,11 @@ public class ImageConfiguration {
         this.errorHolderDrawable = builder.errorHolderDrawable;
     }
 
+    public static ImageConfiguration createSimple() {
+        return new Builder().build();
+    }
+
+
     public Drawable getPlaceholderDrawable(Resources resources) {
         return placeholderRes != 0 ? resources.getDrawable(placeholderRes) : placeholderDrawable;
     }

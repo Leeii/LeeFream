@@ -1,7 +1,7 @@
 package com.leeiidesu.libmvp.di.module;
 
 import com.leeiidesu.libmvp.tool.LogInterceptor;
-import com.leeiidesu.libmvp.tool.converter.FsonConverterFactory;
+import com.leeiidesu.libmvp.tool.converter.FastJsonConverterFactory;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -86,7 +86,7 @@ public class RequestModule {
                 .baseUrl(httpUrl)
                 .client(client)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//使用rxJava
-                .addConverterFactory(FsonConverterFactory.create())//使用FastJson
+                .addConverterFactory(FastJsonConverterFactory.create())//使用FastJson
                 .build();
     }
 }

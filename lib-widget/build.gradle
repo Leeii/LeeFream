@@ -29,5 +29,4 @@ dependencies {
 
     compile project(':lib-core')
     provided project(':lib-common')
-
 }

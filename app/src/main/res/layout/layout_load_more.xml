@@ -7,7 +7,7 @@
     android:paddingBottom="8dp"
     android:paddingTop="8dp">
 
-    <cn.leeii.lib.widget.ProgressWheel
+    <com.leeiidesu.lib.widget.loading.ProgressWheel
         android:id="@+id/progress"
         android:layout_width="40dp"
         android:layout_height="40dp"

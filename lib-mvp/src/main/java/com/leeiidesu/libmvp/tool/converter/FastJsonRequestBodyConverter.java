@@ -1,5 +1,7 @@
 package com.leeiidesu.libmvp.tool.converter;
 
+import android.support.annotation.NonNull;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializeConfig;
 
@@ -9,21 +11,21 @@ import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import retrofit2.Converter;
 
-public final class FsonRequestBodyConverter<T> implements
-                                           Converter<T, RequestBody> {
-    
+public final class FastJsonRequestBodyConverter<T> implements
+        Converter<T, RequestBody> {
+
     private static final MediaType MEDIA_TYPE =
-                                              MediaType.parse("application/json; charset=UTF-8");
-    
+            MediaType.parse("application/json; charset=UTF-8");
+
     private final SerializeConfig serializeConfig;
-    
-    public FsonRequestBodyConverter(SerializeConfig serializeConfig) {
+
+    public FastJsonRequestBodyConverter(SerializeConfig serializeConfig) {
         this.serializeConfig = serializeConfig;
     }
-    
+
     @Override
-    public RequestBody convert(T value) throws IOException {
+    public RequestBody convert(@NonNull T value) throws IOException {
         return RequestBody.create(MEDIA_TYPE,
-                                  JSON.toJSONBytes(value, serializeConfig));
+                JSON.toJSONBytes(value, serializeConfig));
     }
 }

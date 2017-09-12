@@ -44,7 +44,7 @@ public abstract class AbstractApplication extends Application {
      *
      * @param msg 信息
      */
-    public void Tips(String msg) {
+    public void showToast(String msg) {
         mToaster.showSingletonToast(msg);
     }
 

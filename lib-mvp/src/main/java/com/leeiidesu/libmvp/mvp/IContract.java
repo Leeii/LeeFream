@@ -23,9 +23,7 @@ public interface IContract {
 
         void dismissLoading();
 
-        void Tips(String msg);
-
-        void TipsError(String msg);
+        void showToast(String msg);
 
         /**
          * 跳转不带参数

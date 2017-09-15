@@ -44,7 +44,7 @@ dependencies {
     //依赖
     compile project(':lib-common')
     compile project(':lib-mvp')
-    compile project(':lib-widget')
+    compile project(':app-widget')
 
     //leakcanary
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'

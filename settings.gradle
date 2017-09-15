@@ -1,1 +1,1 @@
-include ':app', ':lib-mvp', ':lib-core', ':lib-widget', ':lib-common'
+include ':app', ':lib-mvp', ':lib-core', ':app-widget', ':lib-common'

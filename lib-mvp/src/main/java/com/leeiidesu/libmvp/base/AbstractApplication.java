@@ -48,6 +48,15 @@ public abstract class AbstractApplication extends Application {
         mToaster.showSingletonToast(msg);
     }
 
+    /**
+     * Toast提示
+     *
+     * @param msg 信息
+     */
+    public void showToast(int msg) {
+        mToaster.showSingletonToast(msg);
+    }
+
     public RxModule getRxModule() {
         return new RxModule();
     }

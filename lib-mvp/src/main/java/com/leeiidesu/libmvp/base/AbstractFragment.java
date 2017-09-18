@@ -82,6 +82,7 @@ public abstract class AbstractFragment<A extends AbstractActivity, P extends Bas
         if (useEventBus())
             EventBus.getDefault().unregister(this);
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -110,9 +111,13 @@ public abstract class AbstractFragment<A extends AbstractActivity, P extends Bas
     }
 
 
-
     @Override
     public void showToast(String msg) {
+        mActivity.showToast(msg);
+    }
+
+    @Override
+    public void showToast(int msg) {
         mActivity.showToast(msg);
     }
 

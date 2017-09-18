@@ -109,6 +109,11 @@ public abstract class AbstractActivity<P extends BasePresenter> extends AppCompa
     }
 
     @Override
+    public void showToast(int msg) {
+        mApplication.showToast(msg);
+    }
+
+    @Override
     public void startActivity(Class clazz, boolean finish) {
         startActivity(null, clazz, finish);
     }

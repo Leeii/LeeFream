@@ -25,6 +25,8 @@ public interface IContract {
 
         void showToast(String msg);
 
+        void showToast(int msg);
+
         /**
          * 跳转不带参数
          *
